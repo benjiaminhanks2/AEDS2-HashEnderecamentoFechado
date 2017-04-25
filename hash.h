@@ -16,11 +16,13 @@ typedef struct{
 	Item *itens;
 	unsigned int *pesos;
 } Table;
+void addi(Table *t, Item i);
 void add(Table *t, Chave *c, int tam);
 void transf(Table *t, Chave c);
 void antiColisoes(Item *i,Chave c);
-int peso(int i);
+void antiColisoesi(Item *i,Item item);
+unsigned int peso(unsigned int i, Table *t);
 int calcM(int n);
-void initHash(Table *t,int M);
+void initHash(Table **t,int M);
 void print(Table *t);
 #endif
