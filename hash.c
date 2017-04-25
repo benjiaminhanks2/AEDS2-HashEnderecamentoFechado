@@ -45,7 +45,10 @@ void print(Table *t){
 }
 unsigned int peso(unsigned int i, Table *t){	//realocar vetor para o maior tamanho de i passado
 	if (i > t->pesos[0]){
-		//realloc(t->pesos,sizeof(unsigned int)*i);
+		realloc(t, i*sizeof(unsigned));
+		return ( t->pesos[i] = i*(rand()/10000) ); //TODO Verificar range do rand()
+	}else{
+		return t->pesos[i];
 	}
 }
 void transf(Table *t, Chave c){
