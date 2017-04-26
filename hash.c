@@ -53,8 +53,8 @@ unsigned int peso(unsigned int i, Table *t){	//realocar vetor para o maior taman
 }
 void transf(Table *t, Chave c){
 	int sum = 0;
-	for (int i = 0; c[i] != '\0'; i++) {
-		sum += c[i]*peso(i,t);
+	for (int i = 0; c[i] != '\0'; i++) {			//Realiza a soma dos caracteres da chave e seus pesos
+		sum += c[i]*peso(i+1,t);						//i+1 porque o primeiro espaço está reservado para o tamanho do vetor
 	}
 	if(strcmp(t->itens[sum % t->sz].val,"")){
 		antiColisoes(&t->itens[sum % t->sz],c);	//Campo possui item
