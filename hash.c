@@ -44,11 +44,24 @@ void print(Table *t){
 	}
 }
 unsigned int peso(unsigned int i, Table *t){	//realocar vetor para o maior tamanho de i passado
+	unsigned int *tempvec, j;
 	if (i > t->pesos[0]){
-		realloc(t->pesos, i*sizeof(unsigned));
-		return ( t->pesos[i] = i*(rand()/10000) ); //TODO Verificar range do rand()
+		//inicio nova solucao
+		if((tempvec = (unsigned int*)malloc(i*sizeof(unsigned int)))==NULL) printf("FAIL\n");
+		else t->pesos[0] = i;
+		for (j = 1; j < i ; j++) {
+			tempvec[j] = t->pesos[j];
+		}
+		//free(t->pesos); RETORNA ERRO NAO SEI PORQUE!!TODO:corrigir isso e comentar codigo
+		t->pesos = tempvec;
+		//fim nova solucao
+		/*
+		if((realloc(t->pesos,i*sizeof(unsigned int)))==NULL) printf("FAIL\n");
+		else t->pesos[0] = i;
+		*/
+		return ( t->pesos[i] = i*(rand()/10000) );
 	}else{
-		return t->pesos[i];
+		return ( t->pesos[i] = i*(rand()/10000) );
 	}
 }
 void transf(Table *t, Chave c){

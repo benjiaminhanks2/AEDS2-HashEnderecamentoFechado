@@ -3,7 +3,7 @@ void leArquivo(Table **table){
 	FILE* arquivo;
 	if ((arquivo = fopen(NOMEARQUIVO,"r")) == NULL){
 		printf("Leitura falhou\n");
-		return NULL;
+		return;
 	}
 	char temp_nome[40];
 	Item itemTemp;
@@ -14,7 +14,6 @@ void leArquivo(Table **table){
 				&itemTemp.dados.matricula,
 				temp_nome
 				);
-		// printf("%u %s\n", itemTemp.dados.matricula, temp_nome);
 		for(chave_sz = 0; temp_nome[chave_sz] != '\0'; chave_sz++){} 	//Capturando tamanho do nome
 		if((itemTemp.val = (Chave)malloc((chave_sz+1)*sizeof(char))) == NULL) printf("FAIL\n");				//Alocando espaço para o nome
 		itemTemp.val[chave_sz] = '\0';							//Determinando fim da string
