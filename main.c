@@ -5,10 +5,10 @@
 int main(void)
 {
 	srand(time(NULL));
-	Table *t;
-	initHash(&t,TAMHASH);
+	ClosedAdressingHashTable *t;
+	initClosedAdressingHash(&t,TAMHASH);
 	leArquivo(&t);
 	
-	print(t);
+	print(t->table);
 	return 0;
 }

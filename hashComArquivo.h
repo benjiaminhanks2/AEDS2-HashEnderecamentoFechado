@@ -1,6 +1,6 @@
 #ifndef HASHCOMARQUIVO_H_INCLUDED
 #define HASHCOMARQUIVO_H_INCLUDED
 #define NOMEARQUIVO "arq.dat"
-#include "hash.h"
-void leArquivo(Table **table);
+#include "closedAdressingHash.h"
+void leArquivo(ClosedAdressingHashTable **table);
 #endif
