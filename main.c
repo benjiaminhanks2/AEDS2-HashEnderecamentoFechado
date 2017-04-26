@@ -1,5 +1,5 @@
 #include "hash.h"
-#include "hashComArquivo.c"
+#include "hashComArquivo.h"
 #include <time.h>
 #define TAMHASH 23
 int main(void)

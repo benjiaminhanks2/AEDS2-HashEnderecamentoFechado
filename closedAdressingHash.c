@@ -1,5 +1,4 @@
 #include "closedAdressingHash.h"
-#include "ListaEncadeada.h"
 void initClosedAdressingHash(ClosedAdressingHashTable** t,int M){
 	*t = (ClosedAdressingHashTable *)malloc(sizeof(ClosedAdressingHashTable));
 	initHash(&(*t)->table,M);
@@ -12,7 +11,7 @@ void addItem(ClosedAdressingHashTable *t, Item item){
 		sum += item.nome[i]*peso(i,t);
 	}
 	if(strcmp(t->table->itens[sum % t->table->sz].dados.nome,"")){
-		antiColisoes(&t->table->itens[sum % t->table->sz],item);	//Campo possui item
+		ListaEncadeada_Insere(&t->table->itens[sum % t->table->sz].prox,item);
 		return;
 	}
 	t->table->itens[sum % t->table->sz].dados = item;	//Se Campo estiver vazio
@@ -26,11 +25,4 @@ unsigned int peso(unsigned int i, ClosedAdressingHashTable *t){	//realocar vetor
 	}else{
 		return (t->pesos[i]);
 	}
-}
-void antiColisoes(ListaEncadeada *i,Item item){
-	if(i->prox == NULL){
-		ListaEncadeada_Insere(&(i->prox), item);
-		return;
-	}
-	antiColisoes(i->prox, item);
 }

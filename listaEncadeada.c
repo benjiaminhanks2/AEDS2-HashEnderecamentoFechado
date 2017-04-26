@@ -4,7 +4,10 @@ void initListaEncadeada(ListaEncadeada **lista, int M){
 }
 
 void ListaEncadeada_Insere(ListaEncadeada **lista, Item item){
-	*lista = (ListaEncadeada *)malloc(sizeof(ListaEncadeada));
-	(*lista)->prox = NULL;
-	(*lista)->dados = item;
+	if((*lista) == NULL){
+		*lista = (ListaEncadeada *)malloc(sizeof(ListaEncadeada));
+		(*lista)->prox = NULL;
+		(*lista)->dados = item;
+	}
+	else ListaEncadeada_Insere(&(*lista)->prox,item);
 }
