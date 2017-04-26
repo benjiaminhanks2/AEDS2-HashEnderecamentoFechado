@@ -23,6 +23,6 @@ void antiColisoes(Item *i,Chave c);
 void antiColisoesi(Item *i,Item item);
 unsigned int peso(unsigned int i, Table *t);
 int calcM(int n);
-void initHash(Table **t,int M);
+void initHash(Table** t,int M);
 void print(Table *t);
 #endif

@@ -1,17 +1,12 @@
-#include "hash.h"
+#include "hash.c"
+#include "hashComArquivo.c"
 #define TAMHASH 23
 int main(void)
 {
-	Table t;
-	Chave palavras[] = {
-			"Ola",
-			"Fadoa",
-			"Victor",
-			"SuperHomem",
-			"Brasil"
-			};
-
-	add(&t,palavras,5);
-	print(&t);
+	Table *t;
+	initHash(&t,TAMHASH);
+	leArquivo(&t);
+	
+	print(t);
 	return 0;
 }
