@@ -10,6 +10,18 @@ void initHash(HashTable** t,int M){
 		(*t)->itens[i].dados.nome = "";
 	}
 }
+void printTabela(HashTable* t){
+	ListaEncadeada *ptr;
+	for (int i = 0; i < t->sz; i++){
+		ptr = &t->itens[i];
+		printf("%s",ptr->dados.nome);
+		while(ptr->prox != NULL){
+			ptr = ptr->prox;
+			printf(", %s",ptr->dados.nome);
+		}
+		printf("\n");
+	}
+}
 void print(HashTable* t){
 	ListaEncadeada *ptr;
 	int char_index = 0, printed_counter = 0;

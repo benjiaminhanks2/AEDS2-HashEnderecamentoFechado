@@ -1,6 +1,6 @@
 #ifndef HASH_H_INCLUDED
 #define HASH_H_INCLUDED
-#include "listaEncadeada.c"
+#include "listaEncadeada.h"
 #include <stdio.h>
 #include <stdlib.h>
 typedef struct{
@@ -9,6 +9,7 @@ typedef struct{
 } HashTable;
 void initHash(HashTable** t,int M);
 void print(HashTable* t);
+void printTabela(HashTable* t);
 int searchMatricula(HashTable* t, unsigned int matricula);
 int searchNome(HashTable* t, Chave nome);
 #endif
