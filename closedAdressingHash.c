@@ -1,4 +1,5 @@
 #include "closedAdressingHash.h"
+#include "ListaEncadeada.h"
 void initClosedAdressingHash(ClosedAdressingHashTable** t,int M){
 	*t = (ClosedAdressingHashTable *)malloc(sizeof(ClosedAdressingHashTable));
 	initHash(&(*t)->table,M);
@@ -28,9 +29,7 @@ unsigned int peso(unsigned int i, ClosedAdressingHashTable *t){	//realocar vetor
 }
 void antiColisoes(ListaEncadeada *i,Item item){
 	if(i->prox == NULL){
-		i->prox = (ListaEncadeada *)malloc(sizeof(ListaEncadeada));
-		i->prox->prox = NULL;
-		i->prox->dados = item;
+		ListaEncadeada_Insere(&(i->prox), item);
 		return;
 	}
 	antiColisoes(i->prox, item);

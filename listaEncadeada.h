@@ -11,4 +11,5 @@ typedef struct _ListaEncadeada{
 	Item dados;
 } ListaEncadeada;
 void initListaEncadeada(ListaEncadeada **lista, int M);
+void ListaEncadeada_Insere(ListaEncadeada **lista, Item item);
 #endif
